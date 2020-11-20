@@ -1,0 +1,15 @@
+.navtop {
+  background-color: $color-gray-light;
+  height: 40px;
+  line-height: 40px;
+}
+
+.navtop-login {
+  color: #fff;
+  background-color: #a30000;
+  padding: 10px;
+  &:hover {
+    text-decoration: none;
+    color: #fff;
+  }
+}
