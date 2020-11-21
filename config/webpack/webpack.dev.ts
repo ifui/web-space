@@ -1,9 +1,12 @@
 import common from './webpack.common'
+import path from 'path'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import SettingDev from '../setting-dev'
 import WebpackBar from 'webpackbar'
+import WriteFilePlugin from 'write-file-webpack-plugin'
 import { merge } from 'webpack-merge'
 import { IBuildConfig } from '../../types/IBuildConfig'
+import { IE8Plugin } from '../../utils/supportIE8'
 
 const webpack = (config: IBuildConfig[]) => {
   // 获取 name 值，设置编译输出目录
@@ -12,8 +15,8 @@ const webpack = (config: IBuildConfig[]) => {
     mode: 'development',
     // 热更新
     devServer: {
-      contentBase: './dist',
-      host: '127.0.0.1',
+      contentBase: path.resolve(__dirname, '../../dist'),
+      host: '0.0.0.0',
       port: 8080,
       hot: false,
     },
@@ -23,6 +26,7 @@ const webpack = (config: IBuildConfig[]) => {
     output: {
       filename: Setting.path.js,
       path: Setting.path.output,
+      publicPath: Setting.publicPath.output,
     },
     plugins: [
       // 启动进度条
@@ -31,8 +35,9 @@ const webpack = (config: IBuildConfig[]) => {
       new MiniCssExtractPlugin({
         filename: Setting.path.css,
       }),
+      ...IE8Plugin(Setting),
       // 设置html模板生成路径
-      ...Setting.HtmlWebpackPlugins,
+      ...(Setting.HtmlWebpackPlugins as []),
     ],
     module: {
       rules: [

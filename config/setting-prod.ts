@@ -1,5 +1,5 @@
 import { ISetting, IBuildConfig } from '../types'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
+import createHtmlWebpackPlugin from '../utils/createHtmlWebpackPlugin'
 import path from 'path'
 
 /**
@@ -19,19 +19,13 @@ const SettingProd = (config: IBuildConfig) => {
       output: path.resolve(__dirname, '../dist'),
     },
     publicPath: {
-      output: `/static/dist`,
+      output: '/static/dist/',
       css: `/static/dist/${config.name}/css`,
       iconfont: `/static/dist/${config.name}/iconfont`,
       image: `/static/dist/${config.name}/image`,
     },
-    HtmlWebpackPlugins: [
-      new HtmlWebpackPlugin({
-        filename: `${config.name}.html`,
-        template: `./src/views/${config.name}/html/index.art`,
-        chunks: [config.name],
-        minify: config.minify ? config.minify : true,
-      }),
-    ],
+    HtmlWebpackPlugins: createHtmlWebpackPlugin.singlePlugin(config),
+    ie8: config.ie8 ? config.ie8 : false,
   }
 
   return setting

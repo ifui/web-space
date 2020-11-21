@@ -1,6 +1,6 @@
 import path from 'path'
 import getEntry from '../utils/getEntry'
-import getHtmlWebpackPlugin from '../utils/getHtmlWebpackPlugin'
+import createHtmlWebpackPlugin from '../utils/createHtmlWebpackPlugin'
 import { ISetting, IBuildConfig } from '../types'
 
 /**
@@ -18,12 +18,13 @@ const SettingDev = (config: IBuildConfig[]) => {
       output: path.resolve(__dirname, '../dist'),
     },
     publicPath: {
-      js: 'js',
+      output: '',
       css: 'css',
       iconfont: 'iconfont',
       image: '../',
     },
-    HtmlWebpackPlugins: getHtmlWebpackPlugin(config),
+    HtmlWebpackPlugins: createHtmlWebpackPlugin.multiplePlugin(config),
+    ie8: config.some(val => val.ie8),
   }
 
   return setting

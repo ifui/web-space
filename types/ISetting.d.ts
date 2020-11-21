@@ -7,5 +7,6 @@ interface ISetting {
   path: IBuildPath
   publicPath: IPublicPath
   entry: {}
-  HtmlWebpackPlugins: HtmlWebpackPlugin[]
+  HtmlWebpackPlugins: HtmlWebpackPlugin | HtmlWebpackPlugin[]
+  ie8?: boolean
 }

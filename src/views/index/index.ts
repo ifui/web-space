@@ -2,4 +2,4 @@
 import '@/utils/core-js'
 import './style/index.scss'
 
-const here = 1
+console.log('hello Web Space!')

@@ -1,7 +1,6 @@
 import path from 'path'
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin'
 import webpack from 'webpack'
-import CopyWebpackPlugin from 'copy-webpack-plugin'
 
 const config: webpack.Configuration = {
   // 编译输出的js及路径
@@ -11,23 +10,6 @@ const config: webpack.Configuration = {
   },
   // 追溯源代码错误
   devtool: 'source-map',
-  plugins: [
-    // 全局应用JQuery 1.x版本（支持IE8）
-    new webpack.ProvidePlugin({
-      $: 'jquery-1x',
-      jQuery: 'jquery-1x',
-      'window.jQuery': 'jquery-1x',
-    }),
-    // 将包直接复制过去
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: './src/utils/support-ie',
-          to: 'static/js/support-ie',
-        },
-      ],
-    }),
-  ],
   module: {
     rules: [
       // art-template

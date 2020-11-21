@@ -7,7 +7,9 @@ import WebpackBar from 'webpackbar'
 import { merge } from 'webpack-merge'
 import { IBuildConfig } from '../../types/IBuildConfig'
 import SettingLocal from '../setting-local'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
+import { IE8Plugin } from '../../utils/supportIE8'
 
 const webpack = (config: IBuildConfig) => {
   // 获取 name 值，设置编译输出目录
@@ -46,8 +48,9 @@ const webpack = (config: IBuildConfig) => {
         safelist: config.cssSafelist, // 白名单
         variables: true, // 去除未使用变量
       }),
+      ...IE8Plugin(Setting),
       // 设置html模板生成路径
-      ...Setting.HtmlWebpackPlugins,
+      Setting.HtmlWebpackPlugins as HtmlWebpackPlugin,
     ],
     module: {
       rules: [

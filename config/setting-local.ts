@@ -1,5 +1,5 @@
 import { ISetting, IBuildConfig } from '../types'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
+import createHtmlWebpackPlugin from '../utils/createHtmlWebpackPlugin'
 import path from 'path'
 
 /**
@@ -24,14 +24,8 @@ const SettingLocal = (config: IBuildConfig) => {
       iconfont: '',
       image: '',
     },
-    HtmlWebpackPlugins: [
-      new HtmlWebpackPlugin({
-        filename: `${config.name}.html`,
-        template: `./src/views/${config.name}/html/index.art`,
-        chunks: [config.name],
-        minify: config.minify ? config.minify : true,
-      }),
-    ],
+    HtmlWebpackPlugins: createHtmlWebpackPlugin.singlePlugin(config),
+    ie8: config.ie8 ? config.ie8 : false,
   }
 
   return setting

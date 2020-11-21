@@ -11,6 +11,7 @@ import { IPurgecssSafelist } from '../types/IPurgecss'
  * @param build 是否需要编译输出
  * @param devServer 本地测试服务时，是否启动（建议不需要的关闭，加快编译速度），默认 false
  * @param webpackConfig webpack配置文件路径
+ * @param ie8 是否需要支持IE8
  */
 export interface IBuildConfig {
   name: string
@@ -21,4 +22,5 @@ export interface IBuildConfig {
   build?: boolean
   devServer?: boolean
   webpackConfig?: string
+  ie8?: boolean
 }
