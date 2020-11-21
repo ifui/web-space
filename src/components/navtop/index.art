@@ -1,5 +1,4 @@
-<div class="navtop">
-  <div class="container">
-    11
-  </div>
+<div class="navtop text-center">
+  <img class="rounded-circle" src="../../images/logo.png" height="45">
+  <b class="text-size-3 align-middle ml-3">Hello Web Space!</b>
 </div>

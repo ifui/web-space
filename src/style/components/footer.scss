@@ -1,7 +1,10 @@
 .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
   background-color: #015293;
-  height: 40px;
-  line-height: 40px;
   color: #fff;
   text-align: center;
 }

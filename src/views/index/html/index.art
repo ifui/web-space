@@ -23,7 +23,9 @@
 </head>
 
 <body>
-  <h1>Hello Web Space!</h1>
+  {{include "../../../components/navtop/index"}}
+  <h1 class="text-center">Thank you for using</h1>
+  {{include "../../../components/footer/index"}}
 </body>
 
 </html>
