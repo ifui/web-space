@@ -20,9 +20,9 @@ const SettingLocal = (config: IBuildConfig) => {
     },
     publicPath: {
       output: '',
-      css: '',
-      iconfont: '',
-      image: '',
+      css: '../../',
+      iconfont: '../../',
+      image: '../../',
     },
     HtmlWebpackPlugins: createHtmlWebpackPlugin.singlePlugin(config),
     ie8: config.ie8 ? config.ie8 : false,

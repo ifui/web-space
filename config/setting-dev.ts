@@ -19,9 +19,9 @@ const SettingDev = (config: IBuildConfig[]) => {
     },
     publicPath: {
       output: '',
-      css: 'css',
-      iconfont: 'iconfont',
-      image: '../',
+      css: '../../',
+      iconfont: '../../',
+      image: '../../',
     },
     HtmlWebpackPlugins: createHtmlWebpackPlugin.multiplePlugin(config),
     ie8: config.some(val => val.ie8),
