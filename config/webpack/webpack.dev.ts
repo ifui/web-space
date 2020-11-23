@@ -3,7 +3,6 @@ import path from 'path'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import SettingDev from '../setting-dev'
 import WebpackBar from 'webpackbar'
-import WriteFilePlugin from 'write-file-webpack-plugin'
 import { merge } from 'webpack-merge'
 import { IBuildConfig } from '../../types/IBuildConfig'
 import { IE8Plugin } from '../../utils/supportIE8'
@@ -16,7 +15,7 @@ const webpack = (config: IBuildConfig[]) => {
     // 热更新
     devServer: {
       contentBase: path.resolve(__dirname, '../../dist'),
-      host: '0.0.0.0',
+      host: '127.0.0.1',
       port: 8080,
       hot: false,
     },
