@@ -38,6 +38,16 @@ const config: webpack.Configuration = {
           presets: ['@babel/preset-env', '@babel/preset-typescript'],
         },
       },
+      // eslint
+      {
+        test: /\.(tsx|jsx|ts|js)$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'eslint-loader',
+        enforce: 'pre', //预处理
+        options: {
+          formatter: require('eslint-friendly-formatter'), // 指定错误报告的格式规范
+        },
+      },
     ],
   },
   resolve: {

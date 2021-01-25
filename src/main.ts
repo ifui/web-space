@@ -1,3 +1,3 @@
 import ArtTemplate from 'art-template'
 
-ArtTemplate.defaults.imports.title = '222'
+ArtTemplate.defaults.imports.title = () => 'default title'

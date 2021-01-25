@@ -16,5 +16,6 @@ module.exports = {
   // always 总是有括号
   arrowParens: 'avoid',
   // 换行长度，默认80
-  printWidth: 80
+  printWidth: 80,
+  trailingComma: 'none'
 }
