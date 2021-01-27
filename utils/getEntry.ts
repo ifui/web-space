@@ -6,8 +6,9 @@ import { IBuildConfig } from '../types'
  *
  * @param name
  */
+// eslint-disable-next-line space-before-function-paren
 const getEntry = function (config: IBuildConfig[]) {
-  let entries: any = {}
+  const entries: any = {}
   config.forEach(val => {
     entries[val.name] = path.resolve(
       __dirname,

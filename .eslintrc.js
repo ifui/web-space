@@ -1,11 +1,27 @@
 module.exports = {
   root: true,
-  extends: 'standard',
-  rules: {
-    'no-new': 'off'
+  parser: '@typescript-eslint/parser',
+  env: {
+    browser: true,
+    node: true
   },
-  plugins: ['html'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'eslint-config-prettier',
+    'prettier',
+    'prettier/react',
+    'prettier/@typescript-eslint'
+  ],
+  rules: {
+    'no-new': 'off',
+    'space-before-function-paren': ['error', 'never'],
+    'prettier/prettier': 'error',
+    'prefer-const': 'error',
+    '@typescript-eslint/explicit-module-boundary-types': 'off'
+  },
+  plugins: ['@typescript-eslint', 'html', 'eslint-plugin-prettier'],
   parserOptions: {
-    parser: 'babel-eslint'
+    ecmaVersion: 2020
   }
 }

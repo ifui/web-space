@@ -13,17 +13,17 @@ const IE8Plugin = (Setting: ISetting) => {
     new webpack.ProvidePlugin({
       $: 'jquery-1x',
       jQuery: 'jquery-1x',
-      'window.jQuery': 'jquery-1x',
+      'window.jQuery': 'jquery-1x'
     }),
     // 将包直接复制过去
     new CopyWebpackPlugin({
       patterns: [
         {
           from: './src/statics/support-ie',
-          to: Setting.publicPath.output + 'support-ie',
-        },
-      ],
-    }),
+          to: Setting.publicPath.output + 'support-ie'
+        }
+      ]
+    })
   ]
 }
 

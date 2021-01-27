@@ -7,8 +7,8 @@ const Config: IBuildConfig[] = [
     minify: true,
     devServer: true,
     build: true,
-    ie8: true,
-  },
+    ie8: true
+  }
 ]
 
 export default Config

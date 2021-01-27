@@ -1,0 +1,3 @@
+src/views/**/*.art
+node_modules
+dist

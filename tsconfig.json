@@ -20,12 +20,17 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "types/**/*.ts",
-    "types/**/*.tsx",
+    "types/**/*.d.ts",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "src/views/index/index.ts",
-    "src/main.ts"
+    "src/views/**/*.ts",
+    "src/main.ts",
+    "config/**/*.ts",
+    "config/*.ts",
+    "utils/**/*.ts",
+    "utils/*.ts",
+    "runtime/**/*.tsx",
+    "runtime/*.tsx"
   ],
   "exclude": ["node_modules", "dist"]
 }

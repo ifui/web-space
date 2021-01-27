@@ -22,35 +22,35 @@ const webpack = (config: IBuildConfig) => {
     output: {
       filename: Setting.path.js,
       path: Setting.path.output,
-      publicPath: Setting.publicPath.output,
+      publicPath: Setting.publicPath.output
     },
     plugins: [
       // 启动进度条
       new WebpackBar({}),
       // 自动清空已有旧文件
       new CleanWebpackPlugin({
-        cleanOnceBeforeBuildPatterns: [config.name, `${config.name}.html`],
+        cleanOnceBeforeBuildPatterns: [config.name, `${config.name}.html`]
       }),
       // 分离样式到CSS文件
       new MiniCssExtractPlugin({
-        filename: Setting.path.css,
+        filename: Setting.path.css
       }),
       // 按需加载CSS
       new PurgecssPlugin({
         paths: [
           ...glob.sync(path.join(__dirname, '../../src/views/**/*'), {
-            nodir: true,
+            nodir: true
           }),
           ...glob.sync(path.join(__dirname, '../../src/components/**/*'), {
-            nodir: true,
-          }),
+            nodir: true
+          })
         ],
         safelist: config.cssSafelist, // 白名单
-        variables: true, // 去除未使用变量
+        variables: true // 去除未使用变量
       }),
       ...IE8Plugin(Setting),
       // 设置html模板生成路径
-      Setting.HtmlWebpackPlugins as HtmlWebpackPlugin,
+      Setting.HtmlWebpackPlugins as HtmlWebpackPlugin
     ],
     module: {
       rules: [
@@ -62,16 +62,16 @@ const webpack = (config: IBuildConfig) => {
               loader: MiniCssExtractPlugin.loader,
               options: {
                 // css中的图片路径增加前缀
-                publicPath: Setting.publicPath.image,
-              },
+                publicPath: Setting.publicPath.image
+              }
             },
             {
-              loader: 'css-loader', // 将 CSS 转化成 CommonJS 模块
+              loader: 'css-loader' // 将 CSS 转化成 CommonJS 模块
             },
             {
-              loader: 'postcss-loader', // 自动添加浏览器前缀
-            },
-          ],
+              loader: 'postcss-loader' // 自动添加浏览器前缀
+            }
+          ]
         },
         // sass
         {
@@ -82,19 +82,19 @@ const webpack = (config: IBuildConfig) => {
               options: {
                 // css中的图片路径增加前缀
                 publicPath: Setting.publicPath.image,
-                esModule: false,
-              },
+                esModule: false
+              }
             },
             {
-              loader: 'css-loader', // 将 CSS 转化成 CommonJS 模块
+              loader: 'css-loader' // 将 CSS 转化成 CommonJS 模块
             },
             {
-              loader: 'postcss-loader', // 自动添加浏览器前缀
+              loader: 'postcss-loader' // 自动添加浏览器前缀
             },
             {
-              loader: 'sass-loader', // 将 Sass 编译成 CSS
-            },
-          ],
+              loader: 'sass-loader' // 将 Sass 编译成 CSS
+            }
+          ]
         },
         // HTML 图片提取打包
         {
@@ -107,13 +107,13 @@ const webpack = (config: IBuildConfig) => {
                   {
                     tag: 'img',
                     attribute: 'data-src',
-                    type: 'src',
-                  },
-                ],
+                    type: 'src'
+                  }
+                ]
               },
-              minimize: true,
-            },
-          },
+              minimize: true
+            }
+          }
         },
         // 图片资源
         {
@@ -126,10 +126,10 @@ const webpack = (config: IBuildConfig) => {
                 outputPath: Setting.path.image,
                 // 当小于某KB时转为base64
                 limit: 10,
-                esModule: false,
-              },
-            },
-          ],
+                esModule: false
+              }
+            }
+          ]
         },
         // iconfont
         {
@@ -140,12 +140,12 @@ const webpack = (config: IBuildConfig) => {
               // 保留原文件名和后缀名
               name: '[name].[ext]',
               // 输出到dist/目录
-              outputPath: Setting.path.iconfont,
-            },
-          },
-        },
-      ],
-    },
+              outputPath: Setting.path.iconfont
+            }
+          }
+        }
+      ]
+    }
   })
 }
 

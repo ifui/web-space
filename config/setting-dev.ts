@@ -15,16 +15,16 @@ const SettingDev = (config: IBuildConfig[]) => {
       css: 'css/[name].css',
       iconfont: 'iconfont',
       image: 'images',
-      output: path.resolve(__dirname, '../dist'),
+      output: path.resolve(__dirname, '../dist')
     },
     publicPath: {
       output: '',
       css: '../../',
       iconfont: '../../',
-      image: '../../',
+      image: '../../'
     },
     HtmlWebpackPlugins: createHtmlWebpackPlugin.multiplePlugin(config),
-    ie8: config.some(val => val.ie8),
+    ie8: config.some(val => val.ie8)
   }
 
   return setting

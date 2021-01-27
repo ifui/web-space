@@ -10,7 +10,7 @@ const htmlWebpackPluginOptions = (config: IBuildConfig) => {
     ),
     chunks: [config.name],
     minify: config.minify ? config.minify : true,
-    title: config.title,
+    title: config.title
   }
 }
 

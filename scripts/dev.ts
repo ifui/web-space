@@ -22,7 +22,11 @@ const devServerOptions = Object.assign(
     host: 'localhost',
     stats: {
       colors: true,
-    },
+      modules: false,
+      assets: false,
+      children: false,
+      entrypoints: false
+    }
   },
   webpackConfig.devServer
 )
