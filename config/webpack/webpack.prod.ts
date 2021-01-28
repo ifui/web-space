@@ -43,7 +43,7 @@ const webpack = (config: IBuildConfig) => {
     module: {
       rules: [
         // css
-        ...SettingCss(Setting),
+        ...SettingCss(Setting, config),
         // html
         SettingHtml(),
         // png jpg...

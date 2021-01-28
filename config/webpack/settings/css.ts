@@ -3,7 +3,7 @@ import glob from 'glob'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { ISetting, IBuildConfig } from '../../../types'
 
-export default (Setting: ISetting, config: IBuildConfig) => [
+export default (Setting: ISetting, config?: IBuildConfig) => [
   // css
   {
     test: /\.css$/,
@@ -70,7 +70,7 @@ export default (Setting: ISetting, config: IBuildConfig) => [
                       }
                     )
                   ],
-                  safelist: config.cssSafelist, // 白名单
+                  safelist: config ? config.cssSafelist : '', // 白名单
                   variables: true // 去除未使用变量
                 }
               ]
