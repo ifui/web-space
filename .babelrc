@@ -11,6 +11,9 @@
   "plugins": [
     "@babel/plugin-transform-modules-commonjs",
     "@babel/plugin-transform-object-assign",
-    "@babel/plugin-transform-runtime"
+    "@babel/plugin-transform-runtime",
+    ["polyfill-corejs3", { "method": "usage-global" }],
+    ["polyfill-es-shims", { "method": "usage-global" }],
+    ["polyfill-regenerator", { "method": "usage-global" }]
   ]
 }
