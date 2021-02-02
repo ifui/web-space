@@ -3,10 +3,12 @@
     [
       "@babel/preset-env",
       {
+        "corejs": 3,
         "useBuiltIns": "usage",
-        "corejs": 3
+        "debug": false
       }
-    ]
+    ],
+    "@babel/react"
   ],
   "plugins": [
     "@babel/plugin-transform-modules-commonjs",

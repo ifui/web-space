@@ -25,6 +25,7 @@
 <body>
   {{include "../../../components/navtop/index"}}
   <h1 class="text-center">Thank you for using</h1>
+  <div id="app"></div>
   {{include "../../../components/footer/index"}}
 </body>
 
