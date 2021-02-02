@@ -1,13 +1,12 @@
 import classes from './style/App.module.scss'
+import { Component } from 'react'
+import ReactDOM from 'react-dom'
 
-const App = () => {
-  const hi = 'Hello JSX!'
-  return (
-    <div>
-      <h1 class="text-center">{hi}</h1>
-      <div class={classes.title}>Css Modules</div>
-    </div>
-  )
+class App extends Component {
+  render() {
+    const hi = 'Hello Anujs!'
+    return <div className={classes.title}>{hi}</div>
+  }
 }
 
-export default App
+ReactDOM.render(<App />, document.getElementById('app'))

@@ -12,7 +12,7 @@ const config: webpack.Configuration = {
   devtool: 'source-map',
   plugins: [
     new webpack.ProvidePlugin({
-      h: ['vhtml']
+      react: 'anujs/dist/ReactIE'
     })
   ],
   module: {
@@ -23,11 +23,8 @@ const config: webpack.Configuration = {
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
         options: {
-          presets: [
-            '@babel/typescript',
-            ['@babel/preset-env', { loose: true }]
-          ],
-          plugins: [['@babel/plugin-transform-react-jsx', { pragma: 'h' }]]
+          presets: ['@babel/typescript'],
+          plugins: [['@babel/plugin-transform-react-jsx']]
         }
       },
       // art-template
@@ -71,7 +68,20 @@ const config: webpack.Configuration = {
   resolve: {
     // 别名
     alias: {
-      '@': path.resolve(__dirname, '../../src')
+      '@': path.resolve(__dirname, '../../src'),
+      // react: 'anujs',
+      // 'react-dom': 'anujs',
+      // For compatibility with IE please use the following configuration
+      react: 'anujs/dist/ReactIE',
+      'react-dom': 'anujs/dist/ReactIE',
+      redux: 'anujs/lib/ReduxIE', /// This is mainly for IE6-8, because of the poor performance of the isPlainObject method in the official source code.
+      // If you reference prop-types or create-react-class
+      // Need to add the following alias
+      'prop-types': 'anujs/lib/ReactPropTypes',
+      'create-react-class': 'anujs/lib/createClass',
+      // If you use the onTouchTap event on the mobile side
+      // 'react-tap-event-plugin': 'anujs/lib/injectTapEventPlugin'
+      devtools: 'anujs/lib/devtools'
     },
     extensions: ['.ts', '.js', '.tsx', 'jsx']
   },
@@ -81,7 +91,8 @@ const config: webpack.Configuration = {
       new UglifyJsPlugin({
         uglifyOptions: {
           ie8: true
-        }
+        },
+        sourceMap: true
       })
     ],
     // 单独打包
