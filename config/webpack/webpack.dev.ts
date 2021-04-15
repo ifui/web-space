@@ -19,7 +19,7 @@ const webpack = (config: IBuildConfig[]) => {
     // 热更新
     devServer: {
       contentBase: path.resolve(__dirname, '../../dist'),
-      host: '127.0.0.1',
+      host: '0.0.0.0',
       port: 8080,
       hot: false
     },

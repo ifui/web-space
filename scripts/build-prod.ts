@@ -3,7 +3,7 @@ import config from '../config'
 import webpackProdConfig from '../config/webpack/webpack.prod'
 
 // 线上环境配置
-let multipleConfig: webpack.Configuration[] = []
+const multipleConfig: webpack.Configuration[] = []
 
 config.forEach(val => {
   if (val.build) multipleConfig.push(webpackProdConfig(val))
@@ -36,7 +36,7 @@ webpack(multipleConfig, (err, stats) => {
   // 输出成功消息
   console.log(
     stats.toString({
-      colors: true,
+      colors: true
     })
   )
 })

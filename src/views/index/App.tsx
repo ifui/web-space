@@ -1,12 +1,19 @@
 import classes from './style/App.module.scss'
-import { Component } from 'react'
+import { useState } from 'react'
 import ReactDOM from 'react-dom'
 
-class App extends Component {
-  render() {
-    const hi = 'Hello Anujs!'
-    return <div className={classes.title}>{hi}</div>
-  }
+const App = () => {
+  const [num, setNum] = useState(0)
+
+  return (
+    <div className={classes.title}>
+      hello Anujs!
+      <div>
+        <button onClick={() => setNum(num + 1)}>+1</button>
+      </div>
+      <p>Test:{num}</p>
+    </div>
+  )
 }
 
 ReactDOM.render(<App />, document.getElementById('app'))
