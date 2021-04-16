@@ -6,7 +6,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 interface ISetting {
   path: IBuildPath
   publicPath: IPublicPath
-  entry: {}
+  entry: Record<unknown, unknown>
   HtmlWebpackPlugins: HtmlWebpackPlugin | HtmlWebpackPlugin[]
   ie8?: boolean
 }
