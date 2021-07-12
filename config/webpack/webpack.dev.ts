@@ -37,7 +37,7 @@ const webpack = (config: IBuildConfig[]) => {
       // 分离样式到CSS文件
       new MiniCssExtractPlugin({
         filename: Setting.path.css
-      }),
+      }) as any,
       ...IE8Plugin(Setting),
       // 设置html模板生成路径
       ...(Setting.HtmlWebpackPlugins as [])
